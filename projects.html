@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Manager</title>
+ 
+  <style>
+   
+
+  </style>
+  <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+   <header class="header">
+        
+      <nav>
+        
+         <h1>ATHIRA K S</h1>
+         <ul>
+          <li><a href="index.html">HOME</a></li>
+<li><a href="about.html">ABOUT</a></li>
+<li><a href="resume.html">RESUME</a></li>
+<li><a href="projects.html">PROJECTS</a></li>
+<li><a href="contact.html">CONTACT</a></li>
+         </ul>
+          </nav>
+        </header>
+
+  <h1>Projects</h1>
+
+  <!-- Project Form -->
+  <div>
+    <h2>Add New Project</h2>
+    <form id="project-form">
+      <label for="name">Name:</label>
+      <input type="text" id="name" required placeholder="enter your name"><br>
+
+      <label for="description">Description:</label>
+      <textarea id="description" required placeholder="write a description"></textarea><br>
+
+      <button type="submit" id="submit">Add Project</button>
+    </form>
+  </div>
+
+  <!-- Project List -->
+  <h2>Project List</h2>
+  <ul id="project-list">
+    <!-- Dynamically filled with projects -->
+  </ul>
+<script>
+
+ //Form Submission (Handling User Input):
+
+         
+    document.getElementById('project-form').addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const description = document.getElementById('description').value;
+
+      const response = await fetch('/api/services', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, description }) 
+      });
+
+      const data = await response.json();
+      alert(data.message || 'Project added!');
+    });
+    
+
+  async function loadProjects() {
+    const res = await fetch('/api/services');
+    const projects = await res.json();
+
+    const list = document.getElementById('project-list');
+    list.innerHTML = '';
+
+    projects.forEach(project => {
+      const item = document.createElement('li');
+item.textContent = `${project.name} (${project.description})`;
+      list.appendChild(item);
+    });
+  }
+
+  window.onload = loadProjects; // Auto-run when page loads
+
+    
+  </script>
+
+
+
+</body>
+</html>
+
+
+

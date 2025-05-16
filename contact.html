@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="contact.css">
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+   <header class="header">
+        
+      <nav>
+        
+         <h1>ATHIRA K S</h1>
+         <ul>
+          <li><a href="index.html">HOME</a></li>
+<li><a href="about.html">ABOUT</a></li>
+<li><a href="resume.html">RESUME</a></li>
+<li><a href="projects.html">PROJECTS</a></li>
+<li><a href="contact.html">CONTACT</a></li>
+         </ul>
+          </nav>
+        </header>
+
+  
+  <div class="contact"></div>
+  <form class="contact" id="contact-form">
+    <caption>CONTACT INFO</caption>
+    <br><br>
+    <label>Name</label>
+    <input type="text" required id="name"><br><br>
+    <label>Mobile</label>
+    <input type="text" id="mobile" required><br><br>
+    <label>Email</label>
+    <input type="email" required id="email"><br><br>
+    <label>Message</label>
+    <textarea rows="4" required id="message"></textarea>
+<button type="submit" id="submit">SUBMIT</button>
+<button type="reset">RESET</button>
+  </form>
+  <footer>
+    2025
+  </footer>
+  
+    <script>
+
+      
+    document.getElementById('contact-form').addEventListener('submit', async function (e) {
+  e.preventDefault(); // Prevents the default form submission behavior
+
+  // Collect form values
+  const name = document.getElementById('name').value;
+  const mobile = document.getElementById('mobile').value;
+  const email = document.getElementById('email').value;
+  const message = document.getElementById('message').value;
+
+  // Email format validation
+  if (!validateEmail(email)) {
+    alert("Please enter a valid email address.");
+    return;
+  }
+
+  // Send data to the server
+  try {
+    const response = await fetch('/api/services', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, mobile, email, message })
+    });
+
+    const data = await response.json();
+
+    // Check for server-side validation or errors
+    if (response.ok) {
+      document.getElementById('contact-form').reset();
+      alert("Thank you! Your message has been sent.");
+    } else {
+      alert(`Error: ${data.error || 'Something went wrong'}`);
+    }
+  } catch (error) {
+    console.error('Error:', error);
+    alert('Network error. Please try again later.');
+  }
+});
+
+// Email validation function
+function validateEmail(email) {
+  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return re.test(String(email).toLowerCase());
+}
+
+  </script>
+</body>
+</html>

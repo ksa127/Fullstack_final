@@ -1,0 +1,142 @@
+*{
+  margin :0;
+  padding:0;
+  font-family: sans-serif;
+  box-sizing: border-box;
+}
+body{
+  background-color: #000;
+  color: rgb(197, 139, 238);
+}
+#one {
+  display: flex;
+  align-items: top;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100vb;
+  background-size: cover;
+  background-color: #070707;
+  background-position: center;
+  margin-top: 3%;
+  font-size: 20px;
+}
+  p{
+    margin:0;
+    padding:0;
+    
+    background-color:#1d1915; height:36px;
+    border:1px solid #ccc;
+}
+nav{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+nav a{
+  color: #fffefd;
+    background-color: inherit;
+    text-decoration: none;
+    float:right;
+    font-weight: 300;
+    border:none; outline:none; cursor:pointer;
+    padding:10px 16px;
+    transition: 0.3s;
+}
+nav a:hover{
+    background-color: bisque;
+}
+nav a:active{
+    background-color: bisque;
+}
+.two{
+  background-color: burlywood;
+  height: 50%;
+}
+#o{
+  background: url("C:\Users\user\Desktop\my programs\download.jfif");
+  background-color: blueviolet;
+  margin:0;
+  font-family: Georgia,Serif;
+  color:#fffefd;
+    
+    text-align: center;
+}
+pre{
+ font-family: 'Times New Roman', Times, serif;
+}
+  #h{
+    color: #fbf3ff;
+    font-weight: 900;
+    font-size:larger;
+    font-family: serif;
+  }
+ form{
+    background-color: rgb(178, 148, 206);
+    height: 60%;
+ }
+ input{
+  width: 80%;
+  padding:18px;
+  border-radius: 2%;
+ }
+ table{
+  border: 0;
+  color: #000;
+  height: 40%;
+  line-height: normal;
+ }
+ footer{
+  background-color: #36312cbe;
+  height: 25%;
+ }
+ .image{
+  margin-left: 50%;
+ }
+ p{
+  color: #000;
+  margin-right: auto;
+  margin-bottom: 30%;
+  vertical-align: text-top;
+ }
+section{
+ display: inline-table;
+}
+nav::after {
+content: "";
+clear: both;
+display: table;
+}
+nav img{
+  float: left;
+}
+header{
+  background-image: url("C:\Users\user\Desktop\my_programs\download.jfif");
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+#bt{
+  background-color: rgba(255, 255, 255, 0.685);
+  border: none;
+  color: aliceblue;
+  padding: 15px 40px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 5%;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,2), 0 6px 20px 0 rgba(0,0,0,19);
+}
+#bt:hover{
+  background-color: rgb(152, 144, 165);
+}
+#b2{
+  padding: 0px 0;
+  color: ghostwhite;
+}
+#projects{
+  display: grid;
+  grid-template-columns: repeat(autofit, min(25%));
+  margin-top: 10%;
+}
